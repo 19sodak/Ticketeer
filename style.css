@@ -113,19 +113,58 @@ nav {
 
 /* About Us Component */
 .grid-container {
-    background-color: rgb(205, 205, 205);
+    background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));}
 
 .grid-content-container {
     font-size: large;
     text-align: center;
-    margin-top: 25%;
+    margin-top: 10%;
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 25%;
+    margin-bottom: 10%;
+}
+
+.img-container2 {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 20%;
+}
+
+.grid-container2 {
+    background-color: rgb(207, 207, 207);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+}
+
+.grid-content-container2 {
+    font-size: large;
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
 }
 
 /* Footer Component */
+
+footer {
+    background-color: rgb(255, 66, 66);
+}
+
+.grid-container3 {
+    font-size: large;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.grid-content-container3 {
+    color: white;
+    font-size: large;
+    text-align: left;
+    border-top: rgb(207, 207, 207), solid, 2px;
+}
 
 
