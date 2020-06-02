@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav {
+    margin-right: 10%;
+}
+
+.nav-float-right {
+    float:right;
+    list-style: none;
+}
+
+.nav-float-left {
+    float:left;
+    list-style: none;
+}
+
+
+.container {
+    width: 100%;
+}
+
+
+
+.fontStyle1 {
+    font-size: large;
+    font-weight: 900;
+    text-decoration: none;
+    color: rgba(255, 104, 104, 0.941);
+}
+
+.fontStyle1:hover {
+    color: rgba(218, 62, 62, 0.674);
+}
+
+.img-container1 {
+    display: grid;
+    height: 100%;
+    position: relative;
+}
+
+.left-float-image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    position: relative;
+}
+
+.right-text-blob {
+    top:0;
+    right: 0;
+    background-color: black;
+    width: 40%;
+    height: 100%;
+    max-height: 100vh;
+    z-index: 1000;
+    position: absolute;
+}
+
+.fontStyle2 {
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 20%;
+    font-size: 4vw;
+    color: white;
+    text-align: left;
+    position: absolute;
+} span {
+    background: url(banner.png) -300px -300px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display:block;
+}
+
+/*Vertical Sliding*/
+.slidingVertical{
+	display: inline;
+}
+.slidingVertical span{
+    -webkit-animation: topToBottom 12s linear infinite 0s;
+    opacity: 0;
+	overflow: hidden;
+	position: absolute;
+}
+.slidingVertical span:nth-child(2){
+	-webkit-animation-delay: 6s;
+}
+
+
+/*topToBottom Animation*/
+
+@-webkit-keyframes topToBottom{
+	0% { opacity: 0; }
+	5% { opacity: 0; -webkit-transform: translateY(-50px); }
+	10% { opacity: 1; -webkit-transform: translateY(0px); }
+	50% { opacity: 1; -webkit-transform: translateY(0px); }
+	65% { opacity: 0; -webkit-transform: translateY(30px); }
+	70% { opacity: 0; }
+	100% { opacity: 0; }
+}
+
+
+
