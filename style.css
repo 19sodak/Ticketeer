@@ -78,10 +78,18 @@ nav {
     text-align: left;
     position: absolute;
 } span {
-    background: url(banner.png) -300px -300px;
+    background: url(images/banner.png) -300px -300px;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     display:block;
+}
+
+.centralize-text {
+    margin-top: 50%;
+    position: relative;
+    text-align: center;
+    font-size: 2vw;
+
 }
 
 /*Vertical Sliding*/
