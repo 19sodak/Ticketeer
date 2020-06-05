@@ -7,25 +7,6 @@ function Landing() {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    const handleClick = e => {
-        if (outside.current.contains(e.target)) {
-            return 
-        }
-        setIsOpen(false)
-    }
-
-    function changeHandler() {
-        setIsOpen(false)
-    }
-
-    useEffect(() => {
-        const getClick = document.addEventListener('click', handleClick);
-
-        return () => {
-            getClick()
-        }
-    }, [])
-
     return (
         <body>
             <header>
