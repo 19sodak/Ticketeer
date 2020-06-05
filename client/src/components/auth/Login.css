@@ -1,0 +1,127 @@
+body {
+    background-color: white;
+}
+
+.crossContainer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0vh 5vh 5vh 5vh;
+
+    font-size: 25px;
+}
+
+.modalContainer{
+    border-collapse: separate; 
+    border-radius: 25px;
+    height: 100%;
+    width: 80vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.text1{
+    font-size: 5vw;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 1vh;
+    
+}
+
+.form-option {
+    color: #9ca6af;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-bottom: 32px;
+    padding-top: 32px;
+    position: relative;
+    text-align: center;
+}
+
+.form-option:before {
+    border-top: 1px solid #d5dce0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    z-index: 0;
+}
+
+.form-option:after {
+    border-top: 1px solid #d5dce0;
+    content: "";
+    height: 1px;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    z-index: 0;
+}
+
+.modal-textField {
+    margin-left: 24vw;
+    text-align: left;
+    padding-bottom: 2vh;
+
+}
+
+input[type="password"] {
+    border: none;
+    height: 5vh;
+    width: 12vw;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    transition: width 1s ease 0s;
+}
+
+input[type="password"]:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    width: 32vw;
+}
+
+input[type="email"] {
+    border: none;
+    height: 5vh;
+    width:12vw;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    transition: width 1s ease 0s;
+}
+
+input[type="email"]:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    width: 32vw;
+}
+
+
+
+.modal-button {
+    background-color: rgb(214, 104, 100);
+    color: white;
+    font-size: 2vw;
+    display: inline-block;
+    padding: 50px, 100px;
+    border: 2px solid rgb(248, 180, 180);
+    transition-duration: 0.4s;
+    height: 10vh;
+    width: 32vw;
+    text-decoration: none;
+    margin-left: 24vw;
+    margin-top: 5vh;
+}
+
+.modal-button:hover {
+    background-color: white;
+    color: rgb(214, 104, 100);
+}
+
+.modal-content {
+    text-align: center;
+    color: #d5dce0;
+    text-decoration: none;
+    padding-top: 2vh;
+}

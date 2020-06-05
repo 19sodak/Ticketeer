@@ -96,21 +96,20 @@ nav {
 	display: inline;
 }
 
-.slidingVertical span {
-    -webkit-animation: topToBottom 12s linear infinite 0s;
+.slidingVertical span{
+    animation: topToBottom 12s linear infinite 0s;
     opacity: 0;
 	overflow: hidden;
 	position: absolute;
 }
 
 .slidingVertical span:nth-child(2){
-	-webkit-animation-delay: 6s;
+	animation-delay: 6s;
 }
 
 
 /*topToBottom Animation*/
-
-@-webkit-keyframes topToBottom{
+@keyframes topToBottom{
 	0% { opacity: 0; }
 	5% { opacity: 0; -webkit-transform: translateY(-50px); }
 	10% { opacity: 1; -webkit-transform: translateY(0px); }
@@ -176,4 +175,41 @@ footer {
     border-top: rgb(207, 207, 207), solid, 2px;
 }
 
+/* Modal */
+.button1 {
+    transform: translate(15%, 30%);
+    background-color: rgb(214, 104, 100);
+    font-size: 2vw;
+    display: inline-block;
+    padding: 50px, 100px;
+    border: 2px solid white;
+    transition-duration: 0.4s;
+    height: 10vh;
+    width: 32vw;
+    text-decoration: none;
+
+} 
+.button1:hover {
+    background-color: white;
+    color: rgb(214, 104, 100);
+}
+.button1:focus {outline:0;}
+
+.modal {
+    position: absolute;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-collapse: separate; 
+    border-radius: 25px;
+
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.content2 {
+    position: absolute;
+    opacity: 80%;
+}
 

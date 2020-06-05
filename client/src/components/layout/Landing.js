@@ -1,28 +1,59 @@
-import React, { Component } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Landing.css';
-import { Link } from 'react-router-dom';
+import Login from "../auth/Login"
 
-class Landing extends Component {
-    render() {
-        return (
-            <body>
-                <header>
-                    <div className="container">
-                        <nav>
-                            <ul className="nav-float-left">
-                                <li>
-                                    <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Ticketeer</a>
-                                </li>
-                            </ul>
-                            <ul class="nav-float-right">
-                                <li>
-                                    <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Host an Event</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
+function Landing() {
+    const outside = useRef()
 
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleClick = e => {
+        if (outside.current.contains(e.target)) {
+            return 
+        }
+        setIsOpen(false)
+    }
+
+    function changeHandler() {
+        setIsOpen(false)
+    }
+
+    useEffect(() => {
+        const getClick = document.addEventListener('click', handleClick);
+
+        return () => {
+            getClick()
+        }
+    }, [])
+
+    return (
+        <body>
+            <header>
+                <div className="container">
+                    <nav>
+                        <ul className="nav-float-left">
+                            <li>
+                                <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Ticketeer</a>
+                            </li>
+                        </ul>
+                        <ul class="nav-float-right">
+                            <li>
+                                <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Host an Event</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div ref={outside}>
+                <div className="modal">
+                {isOpen ? 
+                (
+                    <Login onClick={() => setIsOpen(!isOpen)}/>
+                ) : null}
+
+                </div>
+
+            <div className={isOpen? "content2" : "content"}>
                 <div className="img-container1">
                     <img src={require('./images/banner.png')} className="banner-image" alt="" />
                     <div className="right-text">
@@ -38,27 +69,9 @@ class Landing extends Component {
                         <div className="fontStyle1 centralize-text" style={{ color: 'white', fontFamily: 'Josefin Sans' }}>
                             Start your journey now
                         </div>
-                        <Link
-                            to="/login"
-                            style={{
-                                width: "140px",
-                                borderRadius: "3px",
-                                letterSpacing: "1.5px"
-                            }}
-                            className="btn btn-large btn-flat waves-effect white black-text">
-                            Log In
-                        </Link>
-
-                        <Link
-                            to="/register"
-                            style={{
-                                width: "140px",
-                                borderRadius: "3px",
-                                letterSpacing: "1.5px"
-                            }}
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3">
-                            Register
-                        </Link>
+                        <div >
+                            <button className="button1" style={{ fontFamily: 'Josefin Sans' }} onClick={() => setIsOpen(!isOpen)}> Login </button>
+                        </div>
                     </div>
                 </div>
 
@@ -97,11 +110,17 @@ class Landing extends Component {
                         we'll send you notofications whenever an event date is near, or if a new event is scheduled near you.
                 </div>
                 </div>
-            </body>
 
-        )
+            </div>
 
-    }
+            </div>
+            
+
+        </body>
+
+    )
+
+
 
 
 }
