@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './Landing.css'
+import React, { Component } from 'react';
+import './Landing.css';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
     render() {
@@ -10,12 +11,12 @@ class Landing extends Component {
                         <nav>
                             <ul className="nav-float-left">
                                 <li>
-                                    <a href="#" className="fontStyle1" style={{fontFamily: 'Josefin Sans'}}>Ticketeer</a>
+                                    <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Ticketeer</a>
                                 </li>
                             </ul>
                             <ul class="nav-float-right">
                                 <li>
-                                    <a href="#" className="fontStyle1" style={{fontFamily: 'Josefin Sans'}}>Host an Event</a>
+                                    <a href="#" className="fontStyle1" style={{ fontFamily: 'Josefin Sans' }}>Host an Event</a>
                                 </li>
                             </ul>
                         </nav>
@@ -23,9 +24,9 @@ class Landing extends Component {
                 </header>
 
                 <div className="img-container1">
-                    <img src={require('./images/banner.png')} className="banner-image" alt=""/>
+                    <img src={require('./images/banner.png')} className="banner-image" alt="" />
                     <div className="right-text">
-                        <div className="fontStyle2" style={{fontFamily: 'Josefin Sans'}}>
+                        <div className="fontStyle2" style={{ fontFamily: 'Josefin Sans' }}>
                             <div className="slidingVertical">
                                 <span>Finding events</span>
                                 <span>Hosting events</span>
@@ -34,13 +35,34 @@ class Landing extends Component {
                             <span> has never been easier.</span>
                         </div>
                         <br />
-                        <div className="fontStyle1 centralize-text" style={{color: 'white', fontFamily: 'Josefin Sans'}}>
+                        <div className="fontStyle1 centralize-text" style={{ color: 'white', fontFamily: 'Josefin Sans' }}>
                             Start your journey now
                         </div>
+                        <Link
+                            to="/login"
+                            style={{
+                                width: "140px",
+                                borderRadius: "3px",
+                                letterSpacing: "1.5px"
+                            }}
+                            className="btn btn-large btn-flat waves-effect white black-text">
+                            Log In
+                        </Link>
+
+                        <Link
+                            to="/register"
+                            style={{
+                                width: "140px",
+                                borderRadius: "3px",
+                                letterSpacing: "1.5px"
+                            }}
+                            className="btn btn-large waves-effect waves-light hoverable blue accent-3">
+                            Register
+                        </Link>
                     </div>
                 </div>
 
-                <div className="grid-container" style={{fontFamily: 'Josefin Sans'}}>
+                <div className="grid-container" style={{ fontFamily: 'Josefin Sans' }}>
                     <div className="grid-content-container">
                         <img src={require('./images/stage.png')} className="img-container2" alt=""></img>
                         <strong>Find events near you with ease</strong>
@@ -63,9 +85,9 @@ class Landing extends Component {
                     Our scannable ticket feature allows seamless entry, eliminating the need to wait for traditional guest verification procedures.
                 </div>
                 </div>
-                <div className="grid-container2" style={{fontFamily: 'Josefin Sans'}}>
+                <div className="grid-container2" style={{ fontFamily: 'Josefin Sans' }}>
                     <div className="grid-content-container2">
-                        <strong style={{fontSize : 'xx-large'}}>About Ticketeer</strong>
+                        <strong style={{ fontSize: 'xx-large' }}>About Ticketeer</strong>
                     </div>
                     <div className="grid-content-container2">
                         Ticketeer makes it easier than ever to find events near you. Simply check out the events
