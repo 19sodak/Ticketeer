@@ -97,6 +97,21 @@ input[type="email"]:focus {
     width: 32vw;
 }
 
+input[type="text"] {
+    border: none;
+    height: 5vh;
+    width:12vw;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    transition: width 1s ease 0s;
+}
+
+input[type="text"]:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(83, 83, 83);
+    width: 32vw;
+}
+
 
 
 .modal-button {
@@ -124,4 +139,29 @@ input[type="email"]:focus {
     color: #d5dce0;
     text-decoration: none;
     padding-top: 2vh;
+}
+
+/* register */
+
+.register-body {
+    margin-left: 34vw;
+}
+
+.register-button {
+    background-color: rgb(214, 104, 100);
+    color: white;
+    font-size: 2vw;
+    display: inline-block;
+    padding: 50px, 100px;
+    border: 2px solid rgb(248, 180, 180);
+    transition-duration: 0.4s;
+    height: 10vh;
+    width: 32vw;
+    text-decoration: none;
+    margin-top: 5vh;
+}
+
+.register-button:hover {
+    background-color: white;
+    color: rgb(214, 104, 100);
 }

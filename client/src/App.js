@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-import Landing from "./components/layout/Landing";
+import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";

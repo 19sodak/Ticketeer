@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Landing.css';
 import Login from "../auth/Login"
 
 function Landing() {
+
+
     const outside = useRef()
 
     const [isOpen, setIsOpen] = useState(false)

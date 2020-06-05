@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./Login.css"
+import { Link, withRouter } from "react-router-dom";
+import "./Auth.css"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -19,14 +19,16 @@ class Login extends Component {
 
     componentDidMount() {
         // If logged in and user navigates to Register page, should redirect them to dashboard
+        const { history } = this.props;
         if (this.props.auth.isAuthenticated) {
-          this.props.history.push("/dashboard");
+          history.push("/dashboard");
         }
       }
 
     componentWillReceiveProps(nextProps) {
+        const { history } = this.props;
         if (nextProps.auth.isAuthenticated) {
-            this.props.history.push("/dashboard"); // push user to dashboard when they login
+            history.push("/dashboard"); // push user to dashboard when they login
         }
         if (nextProps.errors) {
             this.setState({
@@ -130,4 +132,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginUser })(withRouter(Login));
