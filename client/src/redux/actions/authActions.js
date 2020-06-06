@@ -26,7 +26,11 @@ export const loginUser = userData => dispatch => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       // Set token to Auth header
-      setAuthToken(token);
+      if (token) {
+        axios.defaults.headers.common["Authorization"] = token;
+      } else {
+        delete axios.defaults.headers.common["Authorization"];
+      }
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // Set current user
