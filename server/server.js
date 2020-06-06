@@ -1,33 +1,50 @@
 const express = require("express");
+var JwtStrategy = require("passport-jwt").Strategy,
+  ExtractJwt = require("passport-jwt").ExtractJwt;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const users = require("./routes/api/users");
 const app = express();
-// Bodyparser middleware
+const opts = {};
+require("dotenv").config();
+
+const User = require("./models/User");
+const users = require("./routes/users");
+
+// Bodyparser Config
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 app.use(bodyParser.json());
+
 // DB Config
-const db = require("./config/keys").mongoURI;
-// Connect to MongoDB
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-// Passport middleware
+// Passport Config
 app.use(passport.initialize());
-// Passport config
-require("./config/passport")(passport);
-// Routes
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = true;
+passport.use(
+  new JwtStrategy(opts, (jwt_payload, done) => {
+    User.findById(jwt_payload.id)
+      .then(user => {
+        if (user) {
+          return done(null, user);
+        }
+        return done(null, false);
+      })
+      .catch(err => console.log(err));
+  })
+);
+
+// Routing
 app.use("/api/users", users);
 
-const port = 5000 || process.env.PORT; // process.env.port is Heroku's port if you choose to deploy the app there
+// Listen
+const port = 5000 || process.env.PORT;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
