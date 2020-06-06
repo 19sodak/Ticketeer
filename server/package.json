@@ -21,17 +21,13 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/19sodak/Ticketeer.git"
   },
-  "author": "",
+  "author": "Kota Soda, ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/19sodak/Ticketeer/issues"

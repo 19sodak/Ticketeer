@@ -1,0 +1,23 @@
+{
+  "name": "ticketeer",
+  "version": "1.0.0",
+  "description": "## Client",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd server && node server\" \"cd client && npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19sodak/Ticketeer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19sodak/Ticketeer/issues"
+  },
+  "homepage": "https://github.com/19sodak/Ticketeer#readme",
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
