@@ -21,6 +21,8 @@ const EventSchema = new Schema({
   paymentMethod: String,
   maxAttendees: Number,
   price: Number, 
+  /* guest list */
+  /* confirmed guest list */
 });
 
 module.exports = Event = mongoose.model("events", EventSchema);
