@@ -27,6 +27,7 @@ async function postEvent({
 
   // Save event to db
   newEvent.save();
+  return newEvent;
 }
 
 // Exports
