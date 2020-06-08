@@ -10,31 +10,35 @@ const Event = require("../../models/Event");
 // @desc Register event
 // @access Public
 router.post("/hostEvent", (req, res) => {
-    // Validation
-    const { errors, isValid } = validateHostEventInput(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
+  console.log("1");
 
+  // Validation
+  const { errors, isValid } = validateHostEventInput(req.body);
+  console.log("1.5");
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+  console.log("2");
 
-    // Create event
-    const newEvent = new Event({
-        /* TODO: generate id
+  // Create event
+  const newEvent = new Event({
+    /* TODO: generate id
         id:
         */
-        name: req.body.name,
-        hostName: req.body.hostName,
-        description: req.body.description,
-        location: req.body.location,
-        paymentMethod: req.body.paymentMethod,
-        maxAttendees: req.body.maxAttendees,
-        price: req.body.price,
-    });
+    name: req.body.name,
+    hostName: req.body.hostName,
+    description: req.body.description,
+    location: req.body.location,
+    paymentMethod: req.body.paymentMethod,
+    maxAttendees: req.body.maxAttendees,
+    price: req.body.price,
+  });
+  console.log("3");
 
-    newEvent
-        .save()
-        .then(event => res.json(event))
-        .catch(err => console.log(err));
+  newEvent
+    .save()
+    .then(event => res.json(event))
+    .catch(err => console.log(err));
 });
-  
+
 module.exports = router;
