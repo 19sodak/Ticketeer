@@ -3,7 +3,7 @@ const Event = require("./models/Event");
 // @route POST api/events/hostEvent
 // @desc Register event
 // @access Public
-async function putEvent({
+async function postEvent({
   name,
   hostName,
   description,
@@ -31,5 +31,5 @@ async function putEvent({
 
 // Exports
 module.exports = {
-  putEvent: putEvent,
+  postEvent: postEvent,
 };

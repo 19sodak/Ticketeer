@@ -8,12 +8,14 @@ const { putEvent } = require("../../db/db");
 // @desc Register event
 // @access Public
 router.post("/hostEvent", (req, res) => {
-  //   Validation
+  // Validation
   const { errors, isValid } = validateHostEventInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  putEvent(req.body);
+  putEvent(req.body)
+    .then(event => res.json(event))
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
