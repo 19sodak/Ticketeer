@@ -37,7 +37,9 @@ module.exports = function validateHostEventInput(data) {
   }
 
   // time checks
-  if (data.date <= Date.now) {
+  console.log(data.date <= Date.now());
+  console.log(Date.now());
+  if (data.date <= Date.now()) {
     errors.date = "Please set the date";
   }
   if (data.time && data.time.startTime >= data.time.endTime) {

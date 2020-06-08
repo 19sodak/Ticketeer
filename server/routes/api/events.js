@@ -9,6 +9,7 @@ const { postEvent } = require("../../db/db");
 // @access Public
 router.post("/hostEvent", (req, res) => {
   // Validation
+  console.log(req.body);
   const { errors, isValid } = validateHostEventInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
