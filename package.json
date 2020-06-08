@@ -19,5 +19,8 @@
   "homepage": "https://github.com/19sodak/Ticketeer#readme",
   "devDependencies": {
     "concurrently": "^5.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }

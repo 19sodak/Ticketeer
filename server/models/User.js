@@ -18,6 +18,12 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  tickets: {
+    type: Array,
+    default: [],
+  },
+  
+
 });
 
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = User = mongoose.model("users", UserSchema, "ticketeerdb");

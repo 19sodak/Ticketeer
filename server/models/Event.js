@@ -1,8 +1,5 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-const UserSchema = require('mongoose').model('User').schema
 
 const EventSchema = new Schema({
   id: {
@@ -45,13 +42,13 @@ const EventSchema = new Schema({
     type: Number,
   }, 
   guestList: {
-      type: [UserSchema],
+      type: Array,
       default: [],
   },
   confirmedGuestList: {
-      type: [UserSchema],
+      type: Array,
       default: [],
   },
 });
 
-module.exports = Event = mongoose.model("events", EventSchema);
+module.exports = Event = mongoose.model("events", EventSchema, "ticketeerdb");
