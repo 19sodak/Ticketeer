@@ -1,7 +1,7 @@
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 
-module.exports = function validateHostEvenetInput(data) {
+module.exports = function validateHostEventInput(data) {
   let errors = {};
 
   // Convert empty fields to an empty string so we can use validator functions
@@ -11,7 +11,7 @@ module.exports = function validateHostEvenetInput(data) {
   data.date = !isEmpty(data.date) ? data.date : Date.now;
   data.time.startTime = !isEmpty(data.time.startTime) ? data.time.startTime : Date.now;
   data.time.endTime = !isEmpty(data.time.endTime) ? data.time.endTime : Date.now;
-  data.maxAttendees = !isEmpty(data.time.maxAttendees) ? data.maxAttendees : -1;
+  data.maxAttendees = !isEmpty(data.maxAttendees) ? data.maxAttendees : -1;
   data.price = !isEmpty(data.price) ? data.maxAttendees : "";
   data.paymentMethod = !isEmpty(data.paymentMethod) ? data.paymentMethod : "";
 
