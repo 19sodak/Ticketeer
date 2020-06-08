@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const validateRegisterInput = require("../../utils/registerValidator");
 const validateLoginInput = require("../../utils/loginValidator");
-const User = require("../../models/User");
+const User = require("../../db/models/User");
 
 // @route POST api/users/register
 // @desc Register user

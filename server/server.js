@@ -8,7 +8,7 @@ const app = express();
 const opts = {};
 require("dotenv").config();
 
-const User = require("./models/User");
+const User = require("./db/models/User");
 const events = require("./routes/api/events");
 const users = require("./routes/api/users");
 
