@@ -13,7 +13,7 @@ router.post("/hostEvent", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  putEvent(req.body)
+  postEvent(req.body)
     .then(event => res.json(event))
     .catch(err => console.log(err));
 });
