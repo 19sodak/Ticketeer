@@ -14,21 +14,21 @@ const EventSchema = new Schema({
   description: {
     type: String,
   },
-/* https://stackoverflow.com/questions/27218389/location-in-mongoose-mongodb */
+  /* https://stackoverflow.com/questions/27218389/location-in-mongoose-mongodb */
   location: {
-    type: String
+    type: String,
   },
   date: {
     type: Date,
   },
   time: {
     startTime: {
-        type: Date,
-        default: Date.now,
+      type: Date,
+      default: Date.now,
     },
     endTime: {
-        type: Date,
-        default: Date.now,
+      type: Date,
+      default: Date.now,
     },
   },
   paymentMethod: {
@@ -39,14 +39,14 @@ const EventSchema = new Schema({
   },
   price: {
     type: Number,
-  }, 
+  },
   guestList: {
-      type: Array,
-      default: [],
+    type: Array,
+    default: [],
   },
   confirmedGuestList: {
-      type: Array,
-      default: [],
+    type: Array,
+    default: [],
   },
 });
 
