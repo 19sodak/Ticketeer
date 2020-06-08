@@ -1,18 +1,24 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const UserSchema = require('mongoose').model('User').schema
+
+
 
 const TicketSchema = new Schema({
-  name: {
+  id: {
     type: String,
     required: true,
   },
-  email: {
+  eventId: {
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
+  qrCode: {
+    type: String,
     required: true,
+  },
+  ticketOwner: {
+      type: UserSchema,
   },
 });
 

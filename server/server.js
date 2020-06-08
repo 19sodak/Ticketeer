@@ -9,7 +9,8 @@ const opts = {};
 require("dotenv").config();
 
 const User = require("./models/User");
-const users = require("./routes/users");
+const users = require("./routes/api/users");
+const events = require("./routes/api/events");
 
 // Bodyparser Config
 app.use(
@@ -43,6 +44,7 @@ passport.use(
 );
 
 // Routing
+app.use("/api/events", events);
 app.use("/api/users", users);
 
 // Listen

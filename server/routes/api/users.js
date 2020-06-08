@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const validateRegisterInput = require("../utils/registerValidator");
-const validateLoginInput = require("../utils/loginValidator");
-const User = require("../models/User");
+const validateRegisterInput = require("../../utils/registerValidator");
+const validateLoginInput = require("../../utils/loginValidator");
+const User = require("../../models/User");
 
 // @route POST api/users/register
 // @desc Register user
@@ -87,5 +87,9 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+//create router for create event
+
+//create router for search ticket
 
 module.exports = router;
