@@ -30,7 +30,23 @@ async function postEvent({
   return newEvent;
 }
 
+async function editEvent({
+  eventId,
+  detail,
+  change,
+}) {
+  //edit event
+  const x = detail;
+  Event.findOne({id: eventId})
+    .then(event => {
+      event.x = change;
+      event.save(err => console.log(err))
+    })
+
+}
+
 // Exports
 module.exports = {
   postEvent: postEvent,
+  editEvent: editEvent,
 };
