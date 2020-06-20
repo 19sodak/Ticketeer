@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  onCreateEventClick = e => {
+    e.preventDefault();
+    const { history } = this.props;
+    history.push("/hostevent");
+  };
+
   render() {
     const { user } = this.props.auth;
     return (
@@ -26,6 +34,17 @@ class Dashboard extends Component {
               onClick={this.onLogoutClick}
             >
               Logout
+            </button>
+            <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem",
+              }}
+              onClick={this.onCreateEventClick}
+            >
+              Create Event
             </button>
           </div>
         </div>

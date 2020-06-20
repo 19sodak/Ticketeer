@@ -2,7 +2,6 @@
 const express = require("express");
 const router = express.Router();
 const validateHostEventInput = require("../../utils/hostEventValidator");
-const validateEventEventInput = require("../../utils/editEventValidator");
 const { postEvent, editEvent } = require("../../db/db");
 
 // @route POST api/events/hostEvent
