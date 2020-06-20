@@ -31,15 +31,18 @@ async function postEvent({
 }
 
 async function editEvent({
-  eventId,
-  detail,
-  change,
+  update,
 }) {
   //edit event
   const x = detail;
   Event.findOne({id: eventId})
     .then(event => {
-      event.x = change;
+      event.name = update.name;
+      event.hostName = update.hostName,
+      event.description = update.description,
+      event.location = update.location,
+      event.paymentMethod = update.paymentMethod,
+      event.maxAttendees = update.maxAttendees,
       event.save(err => console.log(err))
     })
 

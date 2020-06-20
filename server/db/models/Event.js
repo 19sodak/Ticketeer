@@ -48,6 +48,10 @@ const EventSchema = new Schema({
     type: Array,
     default: [],
   },
+  admins: {
+    type: Array,
+    default: []
+  }
 });
 
 module.exports = Event = mongoose.model("events", EventSchema);

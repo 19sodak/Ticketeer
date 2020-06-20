@@ -22,6 +22,16 @@ const UserSchema = new Schema({
     type: Array,
     default: [],
   },
+  //events that the user hosts
+  hostEvents: {
+    type: Array,
+    default: []
+  },
+  //events that the user is interested in
+  interestEvents: {
+    type: Array,
+    default: []
+  },
   
 
 });
