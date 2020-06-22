@@ -8,15 +8,6 @@ module.exports = function validateHostEventInput(data) {
   data.name = !isEmpty(data.name) ? data.name : "";
   data.location = !isEmpty(data.location) ? data.location : "";
   data.description = !isEmpty(data.description) ? data.description : "";
-  data.date = !isEmpty(data.date) ? data.date : Date.now;
-  if (data.time) {
-    data.time.startTime = !isEmpty(data.time.startTime)
-      ? data.time.startTime
-      : Date.now;
-    data.time.endTime = !isEmpty(data.time.endTime)
-      ? data.time.endTime
-      : Date.now;
-  }
   data.maxAttendees = !isEmpty(data.maxAttendees) ? data.maxAttendees : -1;
   data.price = !isEmpty(data.price) ? data.maxAttendees : "";
   data.paymentMethod = !isEmpty(data.paymentMethod) ? data.paymentMethod : "";
@@ -36,15 +27,7 @@ module.exports = function validateHostEventInput(data) {
     errors.description = "Event description is required";
   }
 
-  // time checks
-  console.log(data.date <= Date.now());
-  console.log(Date.now());
-  if (data.date <= Date.now()) {
-    errors.date = "Please set the date";
-  }
-  if (data.time && data.time.startTime >= data.time.endTime) {
-    errors.time = "End time needs to be after the Start time";
-  }
+  //time checks
 
   // MaxAttendees checks
   if (data.maxAttendees === -1) {

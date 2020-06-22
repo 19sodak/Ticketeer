@@ -9,8 +9,9 @@ async function postEvent({
   description,
   location,
   paymentMethod,
-  maxAttendees,
   price,
+  maxAttendees,
+  admins,
 }) {
   // Create event
   const newEvent = new Event({
@@ -21,8 +22,9 @@ async function postEvent({
     description: description,
     location: location,
     paymentMethod: paymentMethod,
-    maxAttendees: maxAttendees,
     price: price,
+    maxAttendees: maxAttendees,
+    admins: admins,
   });
 
   // Save event to db

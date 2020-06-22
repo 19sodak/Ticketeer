@@ -63,6 +63,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
+          email: user.email,
         };
         // TODO: Check this middleware
         // Signin token

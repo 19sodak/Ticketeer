@@ -3,13 +3,13 @@ const express = require("express");
 const router = express.Router();
 const validateHostEventInput = require("../../utils/hostEventValidator");
 const { postEvent, editEvent } = require("../../db/db");
+const Event = require("../../db/models/Event")
 
 // @route POST api/events/hostEvent
 // @desc Register event
 // @access Public
 router.post("/hostEvent", (req, res) => {
   // Validation
-  console.log(req.body);
   const { errors, isValid } = validateHostEventInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
@@ -32,5 +32,19 @@ router.put("/editEvent", (req, res) => {
         .then(event => res.json(event))
         .catch(err => console.log(err));
 });
+
+//@route Get api/events/eventId
+//@desc get the event details for display
+//@access
+router.get("/", (req, res) => {
+  Event.findOne({_id : req.body}).then(event => {
+    if (event) {
+      return res
+    } else {
+      return res.status(400)
+    }
+  })
+});
+
 
 module.exports = router;

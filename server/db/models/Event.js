@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
-  id: {
-    type: String,
-  },
   name: {
     type: String,
   },
@@ -17,19 +14,6 @@ const EventSchema = new Schema({
   /* https://stackoverflow.com/questions/27218389/location-in-mongoose-mongodb */
   location: {
     type: String,
-  },
-  date: {
-    type: Date,
-  },
-  time: {
-    startTime: {
-      type: Date,
-      default: Date.now,
-    },
-    endTime: {
-      type: Date,
-      default: Date.now,
-    },
   },
   paymentMethod: {
     type: String,
@@ -50,7 +34,6 @@ const EventSchema = new Schema({
   },
   admins: {
     type: Array,
-    default: []
   }
 });
 
