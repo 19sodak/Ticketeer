@@ -47,7 +47,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/hostevent" component={HostEvent} />
-              <Route exact path="/events/:eventId"component={EventPage} />
+              <PrivateRoute exact path="/events/:eventId"component={EventPage} />
             </Switch>
           </Router>
         </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getEvent } from "../../redux/actions/eventActions"
+//import { getEvent } from "../../redux/actions/eventActions"
+import axios from 'axios';
 
 class EventPage extends Component {
     constructor() {
@@ -18,8 +19,19 @@ componentDidMount() {
     var url = window.location.pathname;
     url = url.substr(url.lastIndexOf('/') + 1);
     console.log(url);
-    this.props.getEvent(url);
+    this.getEvent();
     }
+
+getEvent = () => {
+    console.log('hwejhkw');
+    axios.get('/api/events')
+        .then (() => {
+            console.log('data has been recieved');
+        })
+        .catch (() => {
+            console.log("error");
+        })
+}
 
 render() {
     return (
@@ -45,4 +57,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps, { getEvent })(EventPage)
+export default connect(mapStateToProps, { })(EventPage)

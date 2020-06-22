@@ -33,6 +33,7 @@ router.put("/editEvent", (req, res) => {
         .catch(err => console.log(err));
 });
 
+/*
 //@route Get api/events/eventId
 //@desc get the event details for display
 //@access
@@ -45,6 +46,6 @@ router.get("/", (req, res) => {
     }
   })
 });
-
+*/
 
 module.exports = router;
