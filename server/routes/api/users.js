@@ -89,8 +89,6 @@ router.post("/login", (req, res) => {
   });
 });
 
-//create router for create event
 
-//create router for search ticket
 
 module.exports = router;

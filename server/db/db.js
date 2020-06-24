@@ -1,4 +1,5 @@
 const Event = require("./models/Event");
+const axios = require("axios");
 
 // @route POST api/events/hostEvent
 // @desc Register event
@@ -50,8 +51,17 @@ async function editEvent({
 
 }
 
+async function getEvent({ id 
+}) {
+  const id = id;
+  Event.findById(id)
+    .then(event => res.json(event))
+} 
+
+
 // Exports
 module.exports = {
   postEvent: postEvent,
   editEvent: editEvent,
+  getEvent: getEvent,
 };

@@ -14,11 +14,10 @@ export const createEvent = (eventData, history) => dispatch => {
       })
     );
 };
-/*
+
 export const getEvent = (eventId) => {
   axios
-    .get("/api/events", eventId)
+    .get("/api/events/getEvent", eventId)
     .then(res => console.log(res.data))
     .catch(err => console.log(err));
 }
-*/
