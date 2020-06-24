@@ -17,7 +17,7 @@ export const createEvent = (eventData, history) => dispatch => {
 
 export const getEvent = (eventId) => {
   axios
-    .get("/api/events/getEvent", eventId)
+    .get(`/api/events/getEvent?id=${eventId}`)
     .then(res => console.log(res.data))
     .catch(err => console.log(err));
 }
