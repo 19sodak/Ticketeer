@@ -37,7 +37,7 @@ router.put("/editEvent", (req, res) => {
 //@route Get api/events/getEvent
 //@desc get the event details for display
 //@access
-router.post("/getEvent", (req, res) => {
+router.get("/getEvent", (req, res) => {
   getEvent(req.body)
     .then(event => res.json(event))
     .catch(err => console.log(err));
