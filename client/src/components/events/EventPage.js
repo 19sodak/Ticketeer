@@ -16,15 +16,19 @@ class EventPage extends Component {
 
 componentDidMount() {
     var url = window.location.pathname;
-    const id = url.substr(url.lastIndexOf('/') + 1);
-    console.log(id);
+    var id = url.substr(url.lastIndexOf('/') + 1);
+    
     this.props.getEvent(id);
+    
+ 
+
     }
 
 render() {
     return (
         <div>
             <b>hello</b>
+            <b>{this.state.data}</b>
         </div>
     )
 }

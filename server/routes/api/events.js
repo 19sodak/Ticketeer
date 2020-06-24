@@ -4,6 +4,8 @@ const router = express.Router();
 const validateHostEventInput = require("../../utils/hostEventValidator");
 const { postEvent, editEvent, getEvent } = require("../../db/db");
 const Event = require("../../db/models/Event")
+const mongoose = require("mongoose");
+
 
 // @route POST api/events/hostEvent
 // @desc Register event
@@ -37,9 +39,10 @@ router.put("/editEvent", (req, res) => {
 //@route Get api/events/getEvent
 //@desc get the event details for display
 //@access
-router.get("/getEvent/", (req, res) => {
-  getEvent(req.query.id)
-    .then(event => res.json(event))
+router.get("/getEvent", (req, res) => {
+  //console.log(req.query.id);
+  Event.find({ _id: mongoose.Types.ObjectId(req.query.id) })
+    .then(event => res.json(event))//res.json(event))
     .catch(err => console.log(err));
 });
 
