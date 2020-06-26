@@ -14,14 +14,30 @@ export const createEvent = (eventData, history) => dispatch => {
     );
 };
 
-export const getEvent = (eventId) => dispatch => {
-  console.log(eventId);
+export const editEvent = (eventData, history) => dispatch => {
+  history.push("/edit/" + eventData._id)
+}
+
+export const getEvent = (eventId, callback, errorcallback) => dispatch => {
   axios
     .get("/api/events/getEvent", {
       params: {
         id : eventId
       }
     })
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err));
+    .then(res => {
+      if (callback != null){
+        callback(res);
+      }
+    })
+    .catch(err => {
+      // catch error
+      if(errorcallback != null){
+        errorcallback(err);
+    }
+  });
+}
+
+export const submitEdit = (eventData, eventId, history) => dispatch => {
+  history.push("/")
 }

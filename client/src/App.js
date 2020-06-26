@@ -9,6 +9,7 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import HostEvent from "./components/events/HostEvent";
 import EventPage from "./components/events/EventPage";
+import EditEvent from "./components/events/EditEvent";
 import PrivateRoute from "./utils/PrivateRoute";
 
 import { Provider } from "react-redux";
@@ -48,6 +49,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/hostevent" component={HostEvent} />
               <PrivateRoute exact path="/getEvent/:eventId"component={EventPage} />
+              <PrivateRoute exact path="/edit/:eventId"component={EditEvent} />
             </Switch>
           </Router>
         </div>
