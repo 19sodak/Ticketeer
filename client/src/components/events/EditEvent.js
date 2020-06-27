@@ -24,13 +24,12 @@ class EditEvent extends Component {
           };
     }
 
-    componentDidMount() {
+    componentWillMount() {
         var url = window.location.pathname;
         var id = url.substr(url.lastIndexOf('/') + 1);
         var eventId = id;
 
         this.props.getEvent(id, (res) => {
-            console.log(res.data[0]);
             this.setState({ 
                 id: eventId,
                 name: res.data[0].name,
@@ -53,7 +52,6 @@ class EditEvent extends Component {
             errors: nextProps.errors,
           });
         }
-        console.log(this.props.history)
       }
 
     onChange = e => {
@@ -61,7 +59,8 @@ class EditEvent extends Component {
       };
 
     onSubmit = e => {
-        const { user } = this.props.auth;
+        e.preventDefault();
+        console.log("edit")
         const editedEvent = {
             name: this.state.name,
             hostName: this.state.hostName,

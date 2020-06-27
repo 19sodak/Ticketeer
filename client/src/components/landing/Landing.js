@@ -15,7 +15,7 @@ function Landing() {
             <ul className="nav-float-left">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="fontStyle1"
                   style={{ fontFamily: "Josefin Sans" }}
                 >
@@ -26,7 +26,7 @@ function Landing() {
             <ul class="nav-float-right">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="fontStyle1"
                   style={{ fontFamily: "Josefin Sans" }}
                 >

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Hosted from "./Hosted"
+//import Tickets from "./components/dashboard/Tickets"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
@@ -17,6 +19,7 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(user.id);
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
@@ -24,6 +27,7 @@ class Dashboard extends Component {
             <h4>
               <b>Welcome,</b> {user.name.split(" ")[0]}
             </h4>
+            <Hosted userId={user.id} />
             <button
               style={{
                 width: "150px",

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "../ActionTypes";
+import { GET_ERRORS } from "../ActionTypes";
 
 // Register Event
 export const createEvent = (eventData, history) => dispatch => {
@@ -39,5 +39,18 @@ export const getEvent = (eventId, callback, errorcallback) => dispatch => {
 }
 
 export const submitEdit = (eventData, eventId, history) => dispatch => {
-  history.push("/")
+  console.log(eventData);
+  axios
+    .put("/api/events/editEvent", {
+      params: {
+        id : eventId,
+        data : eventData,
+      }
+    })
+    .then(res => { console.log("editEvent successful") }
+    )
+    .then(history.push("/dashboard"))
+    .catch(err => {
+      console.log(err)
+  });
 }

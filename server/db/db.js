@@ -35,20 +35,28 @@ async function postEvent({
 
 
 async function editEvent({
-  update,
+  id,
+  data,
 }) {
   //edit event
-  const x = detail;
-  Event.findOne({id: eventId})
-    .then(event => {
-      event.name = update.name;
-      event.hostName = update.hostName,
-      event.description = update.description,
-      event.location = update.location,
-      event.paymentMethod = update.paymentMethod,
-      event.maxAttendees = update.maxAttendees,
-      event.save(err => console.log(err))
-    })
+  console.log(data);
+  var update = new Event({
+    name: data.name,
+    hostName: data.hostName,
+    description: data.description,
+    location: data.location,
+    paymentMethod: data.paymentMethod,
+    price: data.price,
+    maxAttendees: data.maxAttendees,
+    admins: data.admins,
+  })
+
+  delete update._id;
+
+  Event.findOneAndUpdate({_id: id}, update, {upsert: true}, function(err, doc) {
+    if (err) return res.send(500, {error: err});
+    return res.send('Succesfully saved.');
+});
 
 }
 

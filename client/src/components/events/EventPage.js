@@ -16,7 +16,7 @@ class EventPage extends Component {
     //TODO:
     //make the event details render
 
-    componentDidMount() {
+    componentWillMount() {
         var url = window.location.pathname;
         var id = url.substr(url.lastIndexOf('/') + 1);
 

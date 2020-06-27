@@ -7,7 +7,6 @@ const passport = require("passport");
 const app = express();
 const opts = {};
 require("dotenv").config();
-const axios = require("axios");
 
 const User = require("./db/models/User");
 const events = require("./routes/api/events");

@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const validateHostEventInput = require("../../utils/hostEventValidator");
-const { postEvent, editEvent, getEvent } = require("../../db/db");
+const { postEvent } = require("../../db/db");
 const Event = require("../../db/models/Event")
 const mongoose = require("mongoose");
 
@@ -25,16 +25,41 @@ router.post("/hostEvent", (req, res) => {
 // @desc Edit event - gets the new event details, confirms the user is an event admin, then updates event. 
 // @access Private
 router.put("/editEvent", (req, res) => {
-    // Validate edit... should we pass the whole body through validator, or fin a way to individually validate the edit?
-    const {erros, isValid} = validateHostEventInput(req.body);
-    if(!isValid) {
-        return res.status(400).json(erros);
-    }
-    editEvent(req.body)
-        .then(event => res.json(event))
-        .catch(err => console.log(err));
-});
+  console.log(req.body.params.data);
 
+
+  var update = new Event({
+    name: req.body.params.data.name,
+    hostName: req.body.params.data.hostName,
+    description: req.body.params.data.description,
+    location: req.body.params.data.location,
+    paymentMethod: req.body.params.data.paymentMethod,
+    price: req.body.params.data.price,
+    maxAttendees: req.body.params.data.maxAttendees,
+    admins: req.body.params.data.admins,
+  })
+
+  const { errors, isValid } = validateHostEventInput(update);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  Event.updateOne({ _id: mongoose.Types.ObjectId(req.body.params.id) }, {
+    $set: {               
+      name: update.name,
+      hostName: update.hostName,
+      description: update.description,
+      location: update.location,
+      paymentMethod: update.paymentMethod,
+      price: update.price,
+      maxAttendees: update.maxAttendees,
+      admins: update.admins,
+    }
+  }
+  ).then(result => {
+    console.log("updated");
+  });
+})
 
 //@route Get api/events/getEvent
 //@desc get the event details for display
