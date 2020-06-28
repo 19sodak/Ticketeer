@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Hosted from "./Hosted"
+import Slider from "./Slider"
 //import Tickets from "./components/dashboard/Tickets"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -27,7 +27,11 @@ class Dashboard extends Component {
             <h4>
               <b>Welcome,</b> {user.name.split(" ")[0]}
             </h4>
-            <Hosted userId={user.id} />
+            <br></br>
+            <h4>Your hosted events</h4>
+            <Slider userId={user.id} hosts={true} />
+            <h4>Your Tickets</h4>
+            <Slider userId={user.id} hosts={false} />
             <button
               style={{
                 width: "150px",

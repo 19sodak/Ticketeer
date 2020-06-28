@@ -1,0 +1,16 @@
+.card {
+    background-color: #fff;
+    min-width: 100%;
+    min-height: 200px;
+    display: flex;
+    overflow-x: auto;
+  }
+
+.card::-webkit-scrollbar {
+    display: none;
+  }
+
+.card--content {
+    min-width: 200px;
+    margin: 5px;
+}
