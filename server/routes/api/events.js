@@ -71,5 +71,23 @@ router.get("/getEvent", (req, res) => {
     .catch(err => console.log(err));
 });
 
+// console.log(req.query.userId);
+//   console.log(typeof(req.query.userId))
+
+router.get("/getHosted", (req, res) => {
+  Event.find({ admins: req.query.userId })
+    .then(event => res.json(event))
+    .catch(err => console.log(err))
+
+});
+
+// console.log(req.query.userId);
+
+router.get("/getTickets", (req, res) => {
+  Event.find({ confirmedGuests: req.query.userId })
+    .then(event => res.json(event))
+    .catch(event => console.log(err));
+  
+})
 
 module.exports = router;

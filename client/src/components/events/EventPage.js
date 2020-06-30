@@ -22,6 +22,7 @@ class EventPage extends Component {
 
         this.props.getEvent(id, (res) => {
             this.setState({ data: res.data[0] })
+            console.log(res.data[0])
         }, (err) => {
             alert(err);
         });

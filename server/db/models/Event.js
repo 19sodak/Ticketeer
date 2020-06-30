@@ -25,16 +25,11 @@ const EventSchema = new Schema({
     type: Number,
   },
   guestList: {
-    type: Array,
+    type: [String],
     default: [],
   },
-  confirmedGuestList: {
-    type: Array,
-    default: [],
-  },
-  admins: {
-    type: Array,
-  }
+  confirmedGuestList: [String],
+  admins: [String],
 });
 
 module.exports = Event = mongoose.model("events", EventSchema);

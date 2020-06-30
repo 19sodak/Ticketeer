@@ -19,6 +19,7 @@ export const editEvent = (eventData, history) => dispatch => {
 }
 
 export const getEvent = (eventId, callback, errorcallback) => dispatch => {
+  
   axios
     .get("/api/events/getEvent", {
       params: {
@@ -39,7 +40,6 @@ export const getEvent = (eventId, callback, errorcallback) => dispatch => {
 }
 
 export const submitEdit = (eventData, eventId, history) => dispatch => {
-  console.log(eventData);
   axios
     .put("/api/events/editEvent", {
       params: {
@@ -52,5 +52,46 @@ export const submitEdit = (eventData, eventId, history) => dispatch => {
     .then(history.push("/dashboard"))
     .catch(err => {
       console.log(err)
+  });
+}
+
+export const getUserHostedEvents = (userId, callback, errorcallback) => dispatch => {
+  axios
+    .get("/api/events/getHosted", {
+      params: {
+        userId : userId,
+      }
+    })
+    .then(res => {
+      if (callback != null){
+        callback(res);
+        console.log(res);
+      }
+    })
+    .catch(err => {
+      // catch error
+      if(errorcallback != null){
+        errorcallback(err);
+      }
+    });
+  }
+
+export const getUserTicketEvents = (userId, callback, errorcallback) => dispatch => {
+  axios
+    .get("/api/events/getTickets", {
+      params: {
+        userId: userId,
+      }
+    })
+    .then(res => {
+      if (callback != null){
+        callback(res);
+      }
+    })
+    .catch(err => {
+      // catch error
+      if(errorcallback != null){
+        errorcallback(err);
+    }
   });
 }
