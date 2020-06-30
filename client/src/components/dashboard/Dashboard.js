@@ -54,6 +54,7 @@ class Dashboard extends Component {
             >
               Create Event
             </button>
+            
           </div>
         </div>
       </div>

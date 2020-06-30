@@ -32,21 +32,29 @@ class EventPage extends Component {
     onLogoutClick = e => {
         e.preventDefault();
         this.props.logoutUser();
-      };
+    };
 
-    
+
     onEditClick = e => {
         e.preventDefault();
         this.props.editEvent(this.state.data, this.props.history);
     };
-    
+
 
 
 
     render() {
+        const { user } = this.props.auth;
+
         var eventData = this.state.data;
+        //const isAdmin = eventData.admins.includes(user.id)
+        var admins = eventData.admins;
+        
+        
+
         return (
             <div>
+                {console.log(eventData.admins)}
                 <b>hello</b>
                 <br></br>
                 {eventData.name}
@@ -59,15 +67,19 @@ class EventPage extends Component {
                 <br></br>
                 {eventData.price}
                 <br></br>
+                {admins && admins.includes(user.id) ?
                 <button
-                    style={{
-                        width: "150px",
-                        borderRadius: "3px",
-                        letterSpacing: "1.5px",
-                        marginTop: "1rem",
-                    }}
-                    onClick={this.onEditClick}
-                >Edit Event</button>
+                style={{
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+                }}
+                onClick={this.onEditClick}
+            >Edit Event</button> :
+                " "
+                }
+
                 <br></br>
                 <button
                     style={{
@@ -78,6 +90,18 @@ class EventPage extends Component {
                     }}
                     onClick={this.onLogoutClick}
                 >Logout</button>
+                <a href="/dashboard">
+                    <button style={{
+                        width: "150px",
+                        borderRadius: "3px",
+                        letterSpacing: "1.5px",
+                        marginTop: "1rem",
+                    }}
+                    >
+                        Dashboard
+
+              </button>
+                </a>
             </div>
         )
     }

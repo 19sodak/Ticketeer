@@ -25,8 +25,6 @@ class HostEvent extends Component {
       admins: [],
       errors: {},
     };
-
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -82,6 +80,18 @@ class HostEvent extends Component {
         >
           Logout
             </button>
+        <a href="/dashboard">
+          <button style={{
+            width: "150px",
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+            marginTop: "1rem",
+          }}
+          >
+            Dashboard
+
+              </button>
+        </a>
         <br></br>
         <form
           noValidate
@@ -111,11 +121,11 @@ class HostEvent extends Component {
               error={errors.hostName}
               id="hostName"
               type="hostName"
-              
+
               className={classnames("", {
                 invalid: errors.hostName,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -127,11 +137,11 @@ class HostEvent extends Component {
               error={errors.description}
               id="description"
               type="text"
-              
+
               className={classnames("", {
                 invalid: errors.description,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -143,11 +153,11 @@ class HostEvent extends Component {
               error={errors.location}
               id="location"
               type="text"
-              
+
               className={classnames("", {
                 invalid: errors.location,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -159,11 +169,11 @@ class HostEvent extends Component {
               error={errors.paymentMethod}
               id="paymentMethod"
               type="text"
-              
+
               className={classnames("", {
                 invalid: errors.paymentMethod,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -175,11 +185,11 @@ class HostEvent extends Component {
               error={errors.price}
               id="price"
               type="number"
-              
+
               className={classnames("", {
                 invalid: errors.price,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -191,17 +201,18 @@ class HostEvent extends Component {
               error={errors.maxAttendees}
               id="maxAttendees"
               type="number"
-              
+
               className={classnames("", {
                 invalid: errors.maxAttendees,
               })}
-              
+
             />
           </div>
           <div>
             <button type="submit" className="create-button">
               Create Event
             </button>
+
           </div>
         </form>
       </div>
@@ -235,11 +246,11 @@ export default connect(mapStateToProps, { logoutUser, createEvent })(HostEvent);
               error={errors.date}
               id="date"
               type="date"
-              
+
               className={classnames("", {
                 invalid: errors.date,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -251,11 +262,11 @@ export default connect(mapStateToProps, { logoutUser, createEvent })(HostEvent);
               error={errors.time}
               id="startTime"
               type="datetime-local"
-              
+
               className={classnames("", {
                 invalid: errors.time,
               })}
-              
+
             />
           </div>
           <div className="modal-textfield">
@@ -267,11 +278,11 @@ export default connect(mapStateToProps, { logoutUser, createEvent })(HostEvent);
               error={errors.time}
               id="endTime"
               type="datetime-local"
-              
+
               className={classnames("", {
                 invalid: errors.time,
               })}
-            
+
             />
           </div>
 */
