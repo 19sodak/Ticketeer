@@ -1,0 +1,54 @@
+.grad {
+    background-image: linear-gradient(to bottom right, black, grey);
+    height: 100%;
+
+  }
+
+.body{
+    background-color: whitesmoke;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    border-radius: 5px;
+    border: solid 2px tomato;
+    
+}
+.titleContainer{
+    background-color: white;
+    margin: 2%;
+    border-radius: 5px;
+    font-family:"Josefin Sans";
+    width: 30vw;
+    height: 20vw;
+}
+.title{
+    margin: 2%;
+    font-size: 4vw;
+    padding-top: 2vh;
+    border-bottom: solid 2px black;
+}
+
+.host{
+    margin: 2%;
+    font-size: 2vw;
+    color: grey
+}
+
+.description{
+    margin: 2%;
+    font-size: 1vw;
+
+}
+
+.eventDetails{
+
+    background-color: white;
+    margin: 2%;
+    border-radius: 5px;
+    font-family:"Josefin Sans";
+    border: solid 2px black;
+    height: 20vw;
+}
+
+.editButton{
+    margin: 3.5%;
+}

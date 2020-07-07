@@ -48,15 +48,20 @@ class Slider extends Component {
     //      in carousel
 
     // iterate through eventsId
-    
+
 
     render() {
         return (
             <div>
-                <section className="card" id="events">
-                    {this.state.eventsId.map((x, i) => <a href={"/getEvent/" + x} key={i}><Event eventId={x}/></a>)}
-                </section>
-                <h4> h4</h4>
+                <div>
+                    {this.state.hosts && (this.state.eventsId.length === 0) ? <a href="/hostEvent/"> Host Events </a> :
+                        !(this.state.hosts) && (this.state.eventsId.length === 0) ? <a href="/"> Find Events </a> :
+                            <section className="card" id="events">
+                                {this.state.eventsId.map((x, i) => <a href={"/getEvent/" + x} key={i} classname="card--content"><Event eventId={x} /></a>)}
+                            </section>
+
+                    }
+                </div>
             </div>
 
         )

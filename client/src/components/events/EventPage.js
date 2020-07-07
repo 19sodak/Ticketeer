@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getEvent, editEvent } from "../../redux/actions/eventActions";
 import { logoutUser } from "../../redux/actions/authActions";
+import "./Events.css"
+import Navbar from "../navbar/Navbar";
+
 
 
 class EventPage extends Component {
@@ -49,59 +52,54 @@ class EventPage extends Component {
         var eventData = this.state.data;
         //const isAdmin = eventData.admins.includes(user.id)
         var admins = eventData.admins;
-        
-        
+
+
 
         return (
-            <div>
-                {console.log(eventData.admins)}
-                <b>hello</b>
-                <br></br>
-                {eventData.name}
-                <br></br>
-                {eventData.hostName}
-                <br></br>
-                {eventData.description}
-                <br></br>
-                {eventData.location}
-                <br></br>
-                {eventData.price}
-                <br></br>
-                {admins && admins.includes(user.id) ?
-                <button
-                style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem",
-                }}
-                onClick={this.onEditClick}
-            >Edit Event</button> :
-                " "
+            <div className="grad">
+                <div className="navComponent">
+                    <Navbar />
+                </div>
+                <div className="body">
+                    <div className="titleContainer">
+                        <h4 className="title">
+                            <b>{eventData.name}</b>
+                        </h4>
+                        <h5 className="host">
+                            by {eventData.hostName}
+                        </h5>
+                        <h5 className="description">
+                            {eventData.description}
+
+                        </h5>
+
+                    </div>
+                    <div className="eventDetails">
+                        <div>
+                            {eventData.description}
+                            {eventData.location}
+                            {eventData.price}
+
+                        </div>
+
+                    </div>
+                    {admins && admins.includes(user.id) ?
+                    <button
+                        style={{
+                            width: "150px",
+                            borderRadius: "3px",
+                            letterSpacing: "1.5px",
+                            marginTop: "1rem",
+                        }}
+                        onClick={this.onEditClick}
+                        className="editButton"
+                    >Edit Event</button> :
+                    " "
                 }
 
-                <br></br>
-                <button
-                    style={{
-                        width: "150px",
-                        borderRadius: "3px",
-                        letterSpacing: "1.5px",
-                        marginTop: "1rem",
-                    }}
-                    onClick={this.onLogoutClick}
-                >Logout</button>
-                <a href="/dashboard">
-                    <button style={{
-                        width: "150px",
-                        borderRadius: "3px",
-                        letterSpacing: "1.5px",
-                        marginTop: "1rem",
-                    }}
-                    >
-                        Dashboard
+                </div>
 
-              </button>
-                </a>
+                
             </div>
         )
     }

@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
 import { getEvent, submitEdit } from "../../redux/actions/eventActions";
 import classnames from "classnames"
+import "./Events.css"
+import Navbar from "../navbar/Navbar";
+
+
 
 
 
@@ -21,7 +25,7 @@ class EditEvent extends Component {
             maxAttendees: "",
             admins: [],
             errors: {},
-          };
+        };
     }
 
     componentWillMount() {
@@ -30,7 +34,7 @@ class EditEvent extends Component {
         var eventId = id;
 
         this.props.getEvent(id, (res) => {
-            this.setState({ 
+            this.setState({
                 id: eventId,
                 name: res.data[0].name,
                 hostName: res.data[0].hostName,
@@ -48,15 +52,15 @@ class EditEvent extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors,
-          });
+            this.setState({
+                errors: nextProps.errors,
+            });
         }
-      }
+    }
 
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
-      };
+    };
 
     onSubmit = e => {
         e.preventDefault();
@@ -71,14 +75,17 @@ class EditEvent extends Component {
             maxAttendees: this.state.maxAttendees,
             admins: this.state.admins,
             errors: {},
-          };
-          this.props.submitEdit(editedEvent, this.state.id, this.props.history);
+        };
+        this.props.submitEdit(editedEvent, this.state.id, this.props.history);
     }
 
     render() {
         const { errors } = this.state;
         return (
-            <div>
+            <div >
+                <div className="navComponent">
+                    <Navbar />
+                </div>
                 <h4>EditEvent</h4>
                 <form
                     noValidate

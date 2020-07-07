@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Slider from "./Slider"
+import Slider from "./Slider";
+import Navbar from "../navbar/Navbar";
+import "./Dashboard.css"
 //import Tickets from "./components/dashboard/Tickets"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -21,43 +23,43 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
     console.log(user.id);
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
-            <h4>
-              <b>Welcome,</b> {user.name.split(" ")[0]}
-            </h4>
-            <br></br>
-            <h4>Your hosted events</h4>
-            <Slider userId={user.id} hosts={true} />
-            <h4>Your Tickets</h4>
-            <Slider userId={user.id} hosts={false} />
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-              }}
-              onClick={this.onLogoutClick}
-            >
-              Logout
+      <div className="bodyDash">
+        <div className="navComponent">
+          <Navbar />
+        </div>
+        <div className="dash">
+          <div >
+            <div>
+              <div>
+                <h4 className="welcome">
+                  <b>Welcome,</b> {user.name.split(" ")[0]}
+                </h4>
+                <div className="horizontalWheel">
+                  <h4 className="wheelText">Your hosted events</h4>
+                  <Slider userId={user.id} hosts={true} />
+                </div>
+                <div className="horizontalWheel">
+                  <h4 className="wheelText">Your Tickets</h4>
+                  <Slider userId={user.id} hosts={false} />
+                </div>
+                <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+                  }}
+                  onClick={this.onCreateEventClick}
+                >
+                  Create Event
             </button>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-              }}
-              onClick={this.onCreateEventClick}
-            >
-              Create Event
-            </button>
-            
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     );
   }
 }

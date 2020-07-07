@@ -5,6 +5,9 @@ import { createEvent } from "../../redux/actions/eventActions";
 import { logoutUser } from "../../redux/actions/authActions";
 import classnames from "classnames"
 import "../auth/Auth.css";
+import "./Events.css"
+import Navbar from "../navbar/Navbar";
+
 
 //TODO:
 //include Dates in events
@@ -66,6 +69,9 @@ class HostEvent extends Component {
     const { user } = this.props.auth;
     return (
       <div>
+        <div className="navComponent">
+          <Navbar />
+        </div>
         <h4>
           <b>Welcome,</b> {user.name.split(" ")[0]}
         </h4>

@@ -4,6 +4,9 @@
     min-height: 200px;
     display: flex;
     overflow-x: auto;
+    
+
+    
   }
 
 .card::-webkit-scrollbar {
@@ -12,5 +15,8 @@
 
 .card--content {
     min-width: 200px;
-    margin: 5px;
+    margin: 10px;
+    border: solid 2px black;
+    padding-left: 2px;
+    padding-right: 2px;
 }

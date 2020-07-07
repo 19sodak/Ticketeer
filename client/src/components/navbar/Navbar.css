@@ -1,0 +1,39 @@
+/* Navbar Component */
+.container {
+    width: 100%;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+}
+
+header:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav {
+    margin-right: 10%;
+}
+
+.nav-float-right {
+    float:right;
+    list-style: none;
+}
+
+.nav-float-left {
+    float:left;
+    list-style: none;
+}
+
+.fontStyle1 {
+    font-size: large;
+    font-weight: 900;
+    text-decoration: none;
+    color: rgba(255, 104, 104, 0.941);
+}
+
+.fontStyle1:hover {
+    color: rgba(218, 62, 62, 0.674);
+}
